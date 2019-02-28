@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DisassemblyDiagnoser Output Repro</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<table>
+<thead>
+<tr><th colspan="1">Repro</th></tr>
+<tr>
+<th>First .NET Core 2.1.7 (CoreCLR 4.6.27129.04, CoreFX 4.6.27129.04), 64bit RyuJIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top;"><pre><code>
+000007fe`795918c0 Repro.First()
+000007fe`795918c0 33c0            xor     eax,eax
+000007fe`795918c2 baffffff00      mov     edx,0FFFFFFh
+000007fe`795918c7 b901000000      mov     ecx,1
+000007fe`795918cc 41b801000000    mov     r8d,1
+000007fe`795918d2 4533c9          xor     r9d,r9d
+000007fe`795918d5 4103c1          add     eax,r9d
+000007fe`795918d8 2bc1            sub     eax,ecx
+000007fe`795918da 3bc1            cmp     eax,ecx
+000007fe`795918dc 7e02            jle     000007fe`795918e0
+000007fe`795918de ffc1            inc     ecx
+000007fe`795918e0 3bc1            cmp     eax,ecx
+000007fe`795918e2 7d03            jge     000007fe`795918e7
+000007fe`795918e4 41ffc8          dec     r8d
+000007fe`795918e7 3bc1            cmp     eax,ecx
+000007fe`795918e9 7506            jne     000007fe`795918f1
+000007fe`795918eb 41b805000000    mov     r8d,5
+000007fe`795918f1 ffca            dec     edx
+000007fe`795918f3 413bd1          cmp     edx,r9d
+000007fe`795918f6 7502            jne     000007fe`795918fa
+000007fe`795918f8 ffc1            inc     ecx
+000007fe`795918fa 41ffc1          inc     r9d
+000007fe`795918fd 4181f9ffffff00  cmp     r9d,0FFFFFFh
+000007fe`79591904 7ccf            jl      000007fe`795918d5
+000007fe`79591906 428d0401        lea     eax,[rcx+r8]
+
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,179 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet restore  /p:UseSharedCompilation=false in C:\Projects\PrimitiveWrapperBenchmarks\PrimitiveWrapperBenchmarks\bin\Release\netcoreapp2.1\6f379e00-dcb2-4e7f-a654-f7f516c85830
+// command took 2.05s and exited with 0
+// start dotnet build -c Release  /p:UseSharedCompilation=false in C:\Projects\PrimitiveWrapperBenchmarks\PrimitiveWrapperBenchmarks\bin\Release\netcoreapp2.1\6f379e00-dcb2-4e7f-a654-f7f516c85830
+// command took 3.39s and exited with 0
+// ***** Done, took 00:00:05 (5.75 sec)   *****
+// Found benchmarks:
+//   Repro.First: DefaultJob
+
+// **************************
+// Benchmark: Repro.First: DefaultJob
+// *** Execute ***
+// Launch: 1 / 1
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET Core 2.1.7 (CoreCLR 4.6.27129.04, CoreFX 4.6.27129.04), 64bit RyuJIT
+// GC=Concurrent Workstation
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 436791.11 ns, 436.7911 us/op
+WorkloadJitting  1: 1 op, 29582334.92 ns, 29.5823 ms/op
+
+OverheadJitting  2: 16 op, 681870.34 ns, 42.6169 us/op
+WorkloadJitting  2: 16 op, 470979869.43 ns, 29.4362 ms/op
+
+WorkloadPilot    1: 16 op, 443882810.26 ns, 27.7427 ms/op
+WorkloadPilot    2: 32 op, 915066707.12 ns, 28.5958 ms/op
+
+OverheadWarmup   1: 32 op, 2873.63 ns, 89.8008 ns/op
+OverheadWarmup   2: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadWarmup   3: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadWarmup   4: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadWarmup   5: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadWarmup   6: 32 op, 410.52 ns, 12.8287 ns/op
+
+OverheadActual   1: 32 op, 1231.55 ns, 38.4861 ns/op
+OverheadActual   2: 32 op, 821.04 ns, 25.6574 ns/op
+OverheadActual   3: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual   4: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual   5: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual   6: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual   7: 32 op, 821.04 ns, 25.6574 ns/op
+OverheadActual   8: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual   9: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual  10: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual  11: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual  12: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual  13: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual  14: 32 op, 410.52 ns, 12.8287 ns/op
+OverheadActual  15: 32 op, 410.52 ns, 12.8287 ns/op
+
+WorkloadWarmup   1: 32 op, 893460736.21 ns, 27.9206 ms/op
+WorkloadWarmup   2: 32 op, 894612649.62 ns, 27.9566 ms/op
+WorkloadWarmup   3: 32 op, 932819556.42 ns, 29.1506 ms/op
+WorkloadWarmup   4: 32 op, 922271297.36 ns, 28.8210 ms/op
+WorkloadWarmup   5: 32 op, 898574969.00 ns, 28.0805 ms/op
+WorkloadWarmup   6: 32 op, 891652404.59 ns, 27.8641 ms/op
+WorkloadWarmup   7: 32 op, 898067979.31 ns, 28.0646 ms/op
+WorkloadWarmup   8: 32 op, 904912955.82 ns, 28.2785 ms/op
+WorkloadWarmup   9: 32 op, 923018029.54 ns, 28.8443 ms/op
+WorkloadWarmup  10: 32 op, 903955627.93 ns, 28.2486 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 32 op, 880712921.91 ns, 27.5223 ms/op
+WorkloadActual   2: 32 op, 933507995.04 ns, 29.1721 ms/op
+WorkloadActual   3: 32 op, 889216391.00 ns, 27.7880 ms/op
+WorkloadActual   4: 32 op, 919749075.00 ns, 28.7422 ms/op
+WorkloadActual   5: 32 op, 916620517.61 ns, 28.6444 ms/op
+WorkloadActual   6: 32 op, 927218038.82 ns, 28.9756 ms/op
+WorkloadActual   7: 32 op, 892030902.15 ns, 27.8760 ms/op
+WorkloadActual   8: 32 op, 932544919.90 ns, 29.1420 ms/op
+WorkloadActual   9: 32 op, 928417982.82 ns, 29.0131 ms/op
+WorkloadActual  10: 32 op, 924105491.62 ns, 28.8783 ms/op
+WorkloadActual  11: 32 op, 929725482.53 ns, 29.0539 ms/op
+WorkloadActual  12: 32 op, 921645257.47 ns, 28.8014 ms/op
+WorkloadActual  13: 32 op, 888127286.84 ns, 27.7540 ms/op
+WorkloadActual  14: 32 op, 921998302.92 ns, 28.8124 ms/op
+WorkloadActual  15: 32 op, 957257280.23 ns, 29.9143 ms/op
+WorkloadActual  16: 32 op, 910543620.20 ns, 28.4545 ms/op
+WorkloadActual  17: 32 op, 911827309.87 ns, 28.4946 ms/op
+WorkloadActual  18: 32 op, 1163561850.89 ns, 36.3613 ms/op
+WorkloadActual  19: 32 op, 931983331.33 ns, 29.1245 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 32 op, 880712401.93 ns, 27.5223 ms/op
+WorkloadResult   2: 32 op, 933507475.05 ns, 29.1721 ms/op
+WorkloadResult   3: 32 op, 889215871.01 ns, 27.7880 ms/op
+WorkloadResult   4: 32 op, 919748555.01 ns, 28.7421 ms/op
+WorkloadResult   5: 32 op, 916619997.62 ns, 28.6444 ms/op
+WorkloadResult   6: 32 op, 927217518.83 ns, 28.9755 ms/op
+WorkloadResult   7: 32 op, 892030382.16 ns, 27.8759 ms/op
+WorkloadResult   8: 32 op, 932544399.91 ns, 29.1420 ms/op
+WorkloadResult   9: 32 op, 928417462.83 ns, 29.0130 ms/op
+WorkloadResult  10: 32 op, 924104971.63 ns, 28.8783 ms/op
+WorkloadResult  11: 32 op, 929724962.54 ns, 29.0539 ms/op
+WorkloadResult  12: 32 op, 921644737.48 ns, 28.8014 ms/op
+WorkloadResult  13: 32 op, 888126766.85 ns, 27.7540 ms/op
+WorkloadResult  14: 32 op, 921997782.93 ns, 28.8124 ms/op
+WorkloadResult  15: 32 op, 957256760.24 ns, 29.9143 ms/op
+WorkloadResult  16: 32 op, 910543100.21 ns, 28.4545 ms/op
+WorkloadResult  17: 32 op, 911826789.88 ns, 28.4946 ms/op
+WorkloadResult  18: 32 op, 931982811.34 ns, 29.1245 ms/op
+GC:  0 0 0 0 0
+
+// AfterAll
+
+Mean = 28.6757 ms, StdErr = 0.1437 ms (0.50%); N = 18, StdDev = 0.6096 ms
+Min = 27.5223 ms, Q1 = 28.4545 ms, Median = 28.8069 ms, Q3 = 29.0539 ms, Max = 29.9143 ms
+IQR = 0.5994 ms, LowerFence = 27.5553 ms, UpperFence = 29.9531 ms
+ConfidenceInterval = [28.1061 ms; 29.2454 ms] (CI 99.9%), Margin = 0.5697 ms (1.99% of Mean)
+Skewness = -0.29, Kurtosis = 2.44, MValue = 2
+
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\Repro-report.csv
+  BenchmarkDotNet.Artifacts\results\Repro-report-github.md
+  BenchmarkDotNet.Artifacts\results\Repro-report.html
+  BenchmarkDotNet.Artifacts\results\Repro-disassembly-report.html
+  BenchmarkDotNet.Artifacts\results\Repro-asm.raw.html
+  BenchmarkDotNet.Artifacts\results\Repro-asm.pretty.html
+  BenchmarkDotNet.Artifacts\results\Repro-asm.pretty.md
+  BenchmarkDotNet.Artifacts\results\Repro-disassembly-report.html
+  BenchmarkDotNet.Artifacts\results\Repro-asm.raw.html
+  BenchmarkDotNet.Artifacts\results\Repro-asm.pretty.html
+  BenchmarkDotNet.Artifacts\results\Repro-asm.pretty.md
+
+// * Detailed results *
+Repro.First: DefaultJob
+Runtime = .NET Core 2.1.7 (CoreCLR 4.6.27129.04, CoreFX 4.6.27129.04), 64bit RyuJIT; GC = Concurrent Workstation
+Mean = 28.6757 ms, StdErr = 0.1437 ms (0.50%); N = 18, StdDev = 0.6096 ms
+Min = 27.5223 ms, Q1 = 28.4545 ms, Median = 28.8069 ms, Q3 = 29.0539 ms, Max = 29.9143 ms
+IQR = 0.5994 ms, LowerFence = 27.5553 ms, UpperFence = 29.9531 ms
+ConfidenceInterval = [28.1061 ms; 29.2454 ms] (CI 99.9%), Margin = 0.5697 ms (1.99% of Mean)
+Skewness = -0.29, Kurtosis = 2.44, MValue = 2
+-------------------- Histogram --------------------
+[27.422 ms ; 28.264 ms) | @@@@
+[28.264 ms ; 29.277 ms) | @@@@@@@@@@@@@
+[29.277 ms ; 30.118 ms) | @
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.11.3, OS=Windows 7 SP1 (6.1.7601.0)
+Intel Core i5-2450M CPU 2.50GHz (Sandy Bridge), 1 CPU, 4 logical and 2 physical cores
+Frequency=2435947 Hz, Resolution=410.5180 ns, Timer=TSC
+.NET Core SDK=2.1.503
+  [Host]     : .NET Core 2.1.7 (CoreCLR 4.6.27129.04, CoreFX 4.6.27129.04), 64bit RyuJIT  [AttachedDebugger]
+  DefaultJob : .NET Core 2.1.7 (CoreCLR 4.6.27129.04, CoreFX 4.6.27129.04), 64bit RyuJIT
+
+
+ Method |     Mean |     Error |    StdDev |
+------- |---------:|----------:|----------:|
+  First | 28.68 ms | 0.5697 ms | 0.6096 ms |
+
+// * Warnings *
+Environment
+  Summary -> Benchmark was executed with attached debugger
+
+// * Hints *
+Outliers
+  Repro.First: Default -> 1 outlier  was  removed
+
+// * Legends *
+  Mean   : Arithmetic mean of all measurements
+  Error  : Half of 99.9% confidence interval
+  StdDev : Standard deviation of all measurements
+  1 ms   : 1 Millisecond (0.001 sec)
+
+// * Diagnostic Output - DisassemblyDiagnoser *
+The results were exported to ".\BenchmarkDotNet.Artifacts\results\*-disassembly-report.html"
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:00:30 (30.69 sec), executed benchmarks: 1
+
+// * Artifacts cleanup *
