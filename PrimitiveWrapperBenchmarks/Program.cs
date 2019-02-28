@@ -1,19 +1,20 @@
 ﻿#define Break
 
 using System;
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
+using System.Diagnostics;
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        BenchmarkRunner.Run<Repro>();
+        var sw = Stopwatch.StartNew();
+        for (int i = 0; i < 16; i++)
+            new Repro().First();
+        Console.WriteLine(sw.ElapsedMilliseconds);
         Console.ReadKey();
     }
 }
 
-[DisassemblyDiagnoser]
 public class Repro
 {
     public void f0(){}
@@ -22,9 +23,19 @@ public class Repro
     public void f3(){}
     #if Break
     public void f4(){}
+    public void f41(){}
+    public void f42(){}
+    public void f43(){}
+    public void f44(){}
+    public void f45(){}
+    public void f46(){}
+    public void f47(){}
+    public void f48(){}
+    public void f49(){}
+    public void f50(){}
+    public void f51(){}
     #endif
 
-    [Benchmark]
     public int First()
     {
         int x = 0;
