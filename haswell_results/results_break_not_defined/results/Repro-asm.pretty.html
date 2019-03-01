@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8' /><head>
+<title>Pretty Output of DisassemblyDiagnoser for Repro</title>
+
+<style type="text/css">
+    pre { margin: 0px; }
+    table { border-collapse:collapse; }
+    td.perMethod { border-top: 1px black solid; }
+    tr.evenMap td { background-color: #F5F5F5; }  
+</style>
+
+<style type='text/css'>
+    td.label:hover { cursor: pointer; background-color: yellow !important; }
+    td.highlighted { background-color: yellow !important; }
+</style></head><body>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script>$(document).ready(function () {
+    var selectedIndex = 0;
+
+    function highlight() {
+        $('td.reference.highlighted').removeClass('highlighted');
+
+        var selectedLabel = $(this).attr('data-label');
+        if (selectedLabel) {
+            $('td.reference[data-reference=' + selectedLabel + ']').addClass('highlighted');
+        }
+        selectedIndex = 0;
+    }
+
+    function selectNext() {
+        var $highlighted = $('td.reference.highlighted');
+        var selected = $highlighted[selectedIndex++ % $highlighted.length];
+
+        if (selected) {
+            var selectedReference = $(selected).attr('id');
+            if (selectedReference) {
+                window.location.hash = '#' + selectedReference;
+            }
+        }
+    }
+
+    $('td.label').on('click', highlight);
+
+    $(document).on('keydown', function (event) {
+        if (event.keyCode == 114) { // F3
+            event.preventDefault();
+            // Remap F3 to some other key that the browser doesn't care about
+            selectNext();
+        }
+    });
+});</script>
+<h2>.NET Core 2.1.4 (CoreCLR 4.6.26814.03, CoreFX 4.6.26814.02), 64bit RyuJIT</h2>
+<table><tbody>
+<tr><th colspan="2" style="text-align: left;">Repro.First()</th><th></th></tr>
+<tr class="">
+<td></td><td title="000007fe`6e3a17c0 33c0            xor     eax,eax"><pre><code>xor     eax,eax</pre></code></td>
+</tr><tr class="">
+<td></td><td title="000007fe`6e3a17c2 baffffff00      mov     edx,0FFFFFFh"><pre><code>mov     edx,0FFFFFFh</pre></code></td>
+</tr><tr class="">
+<td></td><td title="000007fe`6e3a17c7 b901000000      mov     ecx,1"><pre><code>mov     ecx,1</pre></code></td>
+</tr><tr class="">
+<td></td><td title="000007fe`6e3a17cc 41b801000000    mov     r8d,1"><pre><code>mov     r8d,1</pre></code></td>
+</tr><tr class="">
+<td></td><td title="000007fe`6e3a17d2 4533c9          xor     r9d,r9d"><pre><code>xor     r9d,r9d</pre></code></td>
+</tr><tr class="evenMap">
+<td id="1_M00_L00" class="label" data-label="1_M00_L00"><pre><code>M00_L00</pre></code></td>
+<td>&nbsp;</td></tr>
+<tr class="evenMap">
+<td></td><td title="000007fe`6e3a17d5 4103c1          add     eax,r9d"><pre><code>add     eax,r9d</pre></code></td>
+</tr><tr class="evenMap">
+<td></td><td title="000007fe`6e3a17d8 2bc1            sub     eax,ecx"><pre><code>sub     eax,ecx</pre></code></td>
+</tr><tr class="evenMap">
+<td></td><td title="000007fe`6e3a17da 3bc1            cmp     eax,ecx"><pre><code>cmp     eax,ecx</pre></code></td>
+</tr><tr class="evenMap">
+<td></td><td id="1" class="reference" data-reference="1_M00_L01" title="000007fe`6e3a17dc 7e02            jle     000007fe`6e3a17e0"><a href="#1_M00_L01"><pre><code>jle     M00_L01</pre></code></a></td>
+</tr><tr class="evenMap">
+<td></td><td title="000007fe`6e3a17de ffc1            inc     ecx"><pre><code>inc     ecx</pre></code></td>
+</tr><tr class="">
+<td id="1_M00_L01" class="label" data-label="1_M00_L01"><pre><code>M00_L01</pre></code></td>
+<td>&nbsp;</td></tr>
+<tr class="">
+<td></td><td title="000007fe`6e3a17e0 3bc1            cmp     eax,ecx"><pre><code>cmp     eax,ecx</pre></code></td>
+</tr><tr class="">
+<td></td><td id="1" class="reference" data-reference="1_M00_L02" title="000007fe`6e3a17e2 7d03            jge     000007fe`6e3a17e7"><a href="#1_M00_L02"><pre><code>jge     M00_L02</pre></code></a></td>
+</tr><tr class="">
+<td></td><td title="000007fe`6e3a17e4 41ffc8          dec     r8d"><pre><code>dec     r8d</pre></code></td>
+</tr><tr class="evenMap">
+<td id="1_M00_L02" class="label" data-label="1_M00_L02"><pre><code>M00_L02</pre></code></td>
+<td>&nbsp;</td></tr>
+<tr class="evenMap">
+<td></td><td title="000007fe`6e3a17e7 3bc1            cmp     eax,ecx"><pre><code>cmp     eax,ecx</pre></code></td>
+</tr><tr class="evenMap">
+<td></td><td id="1" class="reference" data-reference="1_M00_L03" title="000007fe`6e3a17e9 7506            jne     000007fe`6e3a17f1"><a href="#1_M00_L03"><pre><code>jne     M00_L03</pre></code></a></td>
+</tr><tr class="evenMap">
+<td></td><td title="000007fe`6e3a17eb 41b805000000    mov     r8d,5"><pre><code>mov     r8d,5</pre></code></td>
+</tr><tr class="">
+<td id="1_M00_L03" class="label" data-label="1_M00_L03"><pre><code>M00_L03</pre></code></td>
+<td>&nbsp;</td></tr>
+<tr class="">
+<td></td><td title="000007fe`6e3a17f1 ffca            dec     edx"><pre><code>dec     edx</pre></code></td>
+</tr><tr class="">
+<td></td><td title="000007fe`6e3a17f3 413bd1          cmp     edx,r9d"><pre><code>cmp     edx,r9d</pre></code></td>
+</tr><tr class="">
+<td></td><td id="1" class="reference" data-reference="1_M00_L04" title="000007fe`6e3a17f6 7502            jne     000007fe`6e3a17fa"><a href="#1_M00_L04"><pre><code>jne     M00_L04</pre></code></a></td>
+</tr><tr class="">
+<td></td><td title="000007fe`6e3a17f8 ffc1            inc     ecx"><pre><code>inc     ecx</pre></code></td>
+</tr><tr class="evenMap">
+<td id="1_M00_L04" class="label" data-label="1_M00_L04"><pre><code>M00_L04</pre></code></td>
+<td>&nbsp;</td></tr>
+<tr class="evenMap">
+<td></td><td title="000007fe`6e3a17fa 41ffc1          inc     r9d"><pre><code>inc     r9d</pre></code></td>
+</tr><tr class="evenMap">
+<td></td><td title="000007fe`6e3a17fd 4181f9ffffff00  cmp     r9d,0FFFFFFh"><pre><code>cmp     r9d,0FFFFFFh</pre></code></td>
+</tr><tr class="evenMap">
+<td></td><td id="1" class="reference" data-reference="1_M00_L00" title="000007fe`6e3a1804 7ccf            jl      000007fe`6e3a17d5"><a href="#1_M00_L00"><pre><code>jl      M00_L00</pre></code></a></td>
+</tr><tr class="evenMap">
+<td></td><td title="000007fe`6e3a1806 428d0401        lea     eax,[rcx+r8]"><pre><code>lea     eax,[rcx+r8]</pre></code></td>
+</tr><tr><td colspan="{2}">&nbsp;</td></tr>
+</tbody></table>
+</body></html>

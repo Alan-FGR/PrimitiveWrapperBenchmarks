@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8' />
+<title>Output of DisassemblyDiagnoser for Repro</title>
+
+<style type="text/css">
+    pre { margin: 0px; }
+    table { border-collapse:collapse; }
+    td.perMethod { border-top: 1px black solid; }
+    tr.evenMap td { background-color: #F5F5F5; }  
+</style>
+</head>
+<body>
+<h2>.NET Core 2.1.4 (CoreCLR 4.6.26814.03, CoreFX 4.6.26814.02), 64bit RyuJIT</h2>
+<table>
+<tbody>
+<tr><th colspan="2" id="8789352388544" style="text-align: left;">000007fe`6e3a17c0 Repro.First()</th><th></th></tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17c0 33c0            xor     eax,eax</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17c2 baffffff00      mov     edx,0FFFFFFh</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17c7 b901000000      mov     ecx,1</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17cc 41b801000000    mov     r8d,1</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17d2 4533c9          xor     r9d,r9d</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17d5 4103c1          add     eax,r9d</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17d8 2bc1            sub     eax,ecx</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17da 3bc1            cmp     eax,ecx</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17dc 7e02            jle     000007fe`6e3a17e0</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17de ffc1            inc     ecx</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17e0 3bc1            cmp     eax,ecx</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17e2 7d03            jge     000007fe`6e3a17e7</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17e4 41ffc8          dec     r8d</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17e7 3bc1            cmp     eax,ecx</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17e9 7506            jne     000007fe`6e3a17f1</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17eb 41b805000000    mov     r8d,5</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17f1 ffca            dec     edx</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17f3 413bd1          cmp     edx,r9d</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17f6 7502            jne     000007fe`6e3a17fa</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17f8 ffc1            inc     ecx</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17fa 41ffc1          inc     r9d</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a17fd 4181f9ffffff00  cmp     r9d,0FFFFFFh</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a1804 7ccf            jl      000007fe`6e3a17d5</pre></code></td>
+<td></td>
+</tr>
+<tr class="">
+<td><pre><code>000007fe`6e3a1806 428d0401        lea     eax,[rcx+r8]</pre></code></td>
+<td></td>
+</tr>
+<tr><td colspan="{2}">&nbsp;</td></tr>
+</tbody></table>
+</body></html>
