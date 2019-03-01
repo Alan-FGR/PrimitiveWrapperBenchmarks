@@ -408,6 +408,7 @@ public void f63(){}
         int x = 0;
         int comparer = 0xffffff;
         int counter = 1;
+        int counter2 = 1;
 
         for (int i = 0; i < 0xffffff; i++)
         {
@@ -415,11 +416,13 @@ public void f63(){}
             x -= counter;
 
             if (x > counter) counter++;
+            if (x < counter) counter2--;
+            if (x == counter) counter2 = 5;
 
             comparer--;
             if (comparer == i) counter++;
         }
 
-        return counter;
+        return counter + counter2;
     }
 }

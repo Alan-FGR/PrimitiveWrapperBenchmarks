@@ -7,8 +7,4 @@
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.11.3" />
-  </ItemGroup>
-
 </Project>
